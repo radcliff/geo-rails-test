@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709045810) do
+ActiveRecord::Schema.define(version: 20140709211401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20140709045810) do
     t.spatial  "latlon",     limit: {:srid=>4326, :type=>"point", :geographic=>true}
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "zipcodes", force: true do |t|
+    t.integer  "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.spatial  "boundary",   limit: {:srid=>2285, :type=>"polygon"}
   end
 
 end
