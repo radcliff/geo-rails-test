@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709225638) do
+ActiveRecord::Schema.define(version: 20140710070242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20140709225638) do
     t.datetime "updated_at"
     t.spatial  "boundary",   limit: {:srid=>4326, :type=>"multi_polygon"}
   end
+
+  add_index "droughts", ["boundary"], :name => "index_droughts_on_boundary", :spatial => true
 
   create_table "locations", force: true do |t|
     t.string   "name"
