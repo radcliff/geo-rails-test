@@ -38,5 +38,8 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'activerecord-postgis-adapter'
 gem 'pry-rails'
+
+gem 'activerecord-postgis-adapter'
+gem 'rgeo-shapefile'
+gem 'dbf'
