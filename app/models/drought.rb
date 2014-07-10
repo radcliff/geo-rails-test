@@ -13,7 +13,7 @@ class Drought < ActiveRecord::Base
       AUTHORITY["EPSG","4326"]]
 WKT
 
-  wgs84_factory = RGeo::Geographic.spherical_factory(:srid => 4326,
+  wgs84_factory = RGeo::Geographic.simple_mercator_factory(:srid => 4326,
     :proj4 => wgs84_proj4, :coord_sys => wgs84_wkt)
 
   set_rgeo_factory_for_column(:boundary, wgs84_factory)
